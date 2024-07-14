@@ -22,15 +22,15 @@ export default class UsersDaoMysql extends Mysql {
     return result
   } 
   async createUser(user) {
-    const {idUsers, email, clave, nombre, apellido, id_rolIndice} = user
-    const query = `INSERT INTO ${this.table} VALUES(${idUsers}, '${email}',' ${clave}', '${nombre}', '${apellido}', ${id_rolIndice})`
+    const {idUsers, email, clave, nombre, apellido, id_rolIndice, id_deporteIndice} = user
+    const query = `INSERT INTO ${this.table} VALUES(${idUsers}, '${email}',' ${clave}', '${nombre}', '${apellido}', ${id_rolIndice}, ${id_deporteIndice})`
     const [result] = await this.connection.promise().query(query)
     return result
   }
   async updateUser(user) {
-    const {idUsers, email, clave, nombre, apellido, id_rolIndice} = user
-    const query = `UPDATE ${this.table} SET email= ?, clave= ?, nombre= ?, apellido= ?, id_rolIndice= ? WHERE idUsers= ?`
-    const [result] = await this.connection.promise().query(query, [email, clave, nombre, apellido, id_rolIndice, idUsers])
+    const {idUsers, email, clave, nombre, apellido, id_rolIndice, id_deporteIndice} = user
+    const query = `UPDATE ${this.table} SET email= ?, clave= ?, nombre= ?, apellido= ?, id_rolIndice= ?, id_deporteIndice= ? WHERE idUsers= ?`
+    const [result] = await this.connection.promise().query(query, [email, clave, nombre, apellido, id_rolIndice, id_deporteIndice, idUsers])
     return result
   }
   async deleteUser(idUsers) {
