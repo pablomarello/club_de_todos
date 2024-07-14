@@ -4,11 +4,11 @@ export default class Mysql {
 
   constructor(){
     this.connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '15409892',
+    host: process.env.HOST_DB || 'localhost',
+    user: process.env.USER_DB || 'root',
+    password: process.env.PASS_DB || '15409892',
     port: 3306,
-    database: 'club_de_todos'
+    database: process.env.DB || 'club_de_todos'
 
 
     })
