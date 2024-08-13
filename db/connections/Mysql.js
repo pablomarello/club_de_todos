@@ -6,7 +6,7 @@ export default class Mysql {
     this.connection = mysql.createConnection({
     host: process.env.HOST_DB || 'localhost',
     user: process.env.USER_DB || 'root',
-    password: process.env.PASS_DB || '15409892',
+    password: process.env.PASS_DB || '',
     port: 3306,
     database: process.env.DB || 'club_de_todos'
 
